@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision2 Build Log</h1>
+<h2>Project:</h2>
+D:\Circuit\Lab3 External interrupt\interupt.uv2
+Project File Date:  03/21/2021
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling code.c...
+linking...
+Program Size: data=22.0 xdata=0 code=286
+creating hex file from "interupt"...
+"interupt" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling code.c...
+linking...
+Program Size: data=22.0 xdata=0 code=286
+creating hex file from "interupt"...
+"interupt" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>

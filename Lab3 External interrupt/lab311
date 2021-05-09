@@ -1,0 +1,47 @@
+#include <reg52.h>
+#define uint unsigned int
+#define uchar unsigned char
+sbit P20=P2^0;
+sbit P21=P2^1;
+uchar count;
+uchar counth,countl;
+const uchar tab[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,}; /*??0~9*/
+void delay()
+{
+  uint i,j;
+  for(i=0;i<256;i++);
+    for(j=0;j<256;j++);
+}
+void int0() interrupt 0 using 1
+{
+  count++;
+  if (count==100)
+  count=99;
+ }
+void int1() interrupt 2 using 2
+{
+ if (count!=0)
+  {count--;}
+ }
+void main(void)
+{
+  IT0=1;
+  IT1=1;
+  EX0=1;
+  EX1=1;
+  EA=1;
+  PX1=1;     
+  while(1)
+  { 
+    counth=count/10;
+    countl=count%10;
+    P1=tab[counth];
+    P21=1;
+    delay();
+    P21=0;
+    P1=tab[countl];
+    P20=1;
+    delay();
+    P20=0;
+   }
+}

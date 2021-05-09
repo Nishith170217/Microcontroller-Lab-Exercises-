@@ -1,0 +1,144 @@
+BL51 BANKED LINKER/LOCATER V5.12                                                        04/11/2021  16:31:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.12, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE lab311.obj TO lab3
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  lab311.obj (LAB311)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  lab3 (LAB311)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000DH     UNIT         ?DT?LAB311
+            IDATA   0015H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     000DH     UNIT         ?C_INITSEG
+            CODE    0013H     0003H     ABSOLUTE     
+            CODE    0016H     008CH     UNIT         ?C_C51STARTUP
+            CODE    00A2H     003DH     UNIT         ?PR?MAIN?LAB311
+            CODE    00DFH     0021H     UNIT         ?PR?DELAY?LAB311
+            CODE    0100H     0013H     UNIT         ?PR?INT0?LAB311
+            CODE    0113H     000BH     UNIT         ?PR?INT1?LAB311
+
+
+
+OVERLAY MAP OF MODULE:   lab3 (LAB311)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LAB311
+  +--> ?C_INITSEG
+
+?PR?MAIN?LAB311
+  +--> ?PR?DELAY?LAB311
+
+
+
+SYMBOL TABLE OF MODULE:  lab3 (LAB311)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LAB311
+BL51 BANKED LINKER/LOCATER V5.12                                                      04/11/2021  16:31:03  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:00DFH         PUBLIC        delay
+  D:0008H         PUBLIC        counth
+  D:0009H         PUBLIC        countl
+  D:00B8H         PUBLIC        IP
+  C:00A2H         PUBLIC        main
+  D:000AH         PUBLIC        count
+  B:00A0H.0       PUBLIC        P20
+  B:00A0H.1       PUBLIC        P21
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:000BH         PUBLIC        tab
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00B8H.2       PUBLIC        PX1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  C:0100H         PUBLIC        int0
+  C:0113H         PUBLIC        int1
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:00DFH         LINE#         9
+  C:00DFH         LINE#         10
+  C:00DFH         LINE#         12
+  C:00EFH         LINE#         13
+  C:00FFH         LINE#         14
+  -------         ENDPROC       DELAY
+  -------         PROC          INT0
+  C:0100H         LINE#         15
+  C:0104H         LINE#         17
+  C:0106H         LINE#         18
+  C:010BH         LINE#         19
+  C:010EH         LINE#         20
+  -------         ENDPROC       INT0
+  -------         PROC          INT1
+  C:0113H         LINE#         21
+  C:0115H         LINE#         23
+  C:0119H         LINE#         24
+  C:011BH         LINE#         25
+  -------         ENDPROC       INT1
+  -------         PROC          MAIN
+  C:00A2H         LINE#         26
+  C:00A2H         LINE#         27
+  C:00A2H         LINE#         28
+  C:00A4H         LINE#         29
+  C:00A6H         LINE#         30
+  C:00A8H         LINE#         31
+BL51 BANKED LINKER/LOCATER V5.12                                                      04/11/2021  16:31:03  PAGE 3
+
+
+  C:00AAH         LINE#         32
+  C:00ACH         LINE#         33
+  C:00AEH         LINE#         34
+  C:00AEH         LINE#         35
+  C:00AEH         LINE#         36
+  C:00B6H         LINE#         37
+  C:00BFH         LINE#         38
+  C:00C7H         LINE#         39
+  C:00C9H         LINE#         40
+  C:00CCH         LINE#         41
+  C:00CEH         LINE#         42
+  C:00D6H         LINE#         43
+  C:00D8H         LINE#         44
+  C:00DBH         LINE#         45
+  C:00DDH         LINE#         46
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LAB311
+
+Program Size: data=22.0 xdata=0 code=286
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
