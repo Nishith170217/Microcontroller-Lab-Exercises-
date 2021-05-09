@@ -1,0 +1,74 @@
+BL51 BANKED LINKER/LOCATER V5.12                                                        04/18/2021  16:23:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.12, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE code.obj TO lab7
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  code.obj (CODE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  lab7 (CODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0200H     UNIT         ?CO?CODE
+            CODE    0203H     0027H     UNIT         ?PR?MAIN?CODE
+            CODE    022AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   lab7 (CODE)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CODE
+
+?PR?MAIN?CODE
+  +--> ?CO?CODE
+
+
+
+SYMBOL TABLE OF MODULE:  lab7 (CODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CODE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0203H         PUBLIC        main
+  C:0003H         PUBLIC        Num
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0203H         LINE#         41
+BL51 BANKED LINKER/LOCATER V5.12                                                      04/18/2021  16:23:30  PAGE 2
+
+
+  C:0203H         LINE#         44
+  C:020CH         LINE#         45
+  C:0222H         LINE#         46
+  C:0226H         LINE#         47
+  C:0229H         LINE#         49
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CODE
+
+Program Size: data=9.0 xdata=0 code=566
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
