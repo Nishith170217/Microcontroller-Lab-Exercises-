@@ -1,0 +1,97 @@
+C51 COMPILER V7.50   CODE                                                                  04/17/2021 16:26:48 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE CODE
+OBJECT MODULE PLACED IN code.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE code.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          unsigned char code dispbitcode[]={0xfe,0xfd,0xfb,0xf7, 0xef,0xdf,0xbf,0x7f}; 
+   3          unsigned char code dispcode[]={0x3f,0x06,0x5b,0x4f,0x66, 0x6d,0x7d,0x07,0x7f,0x6f,0x00}; 
+   4          unsigned char dispbuf[8]={10,10,10,10,10,0,0,0}; 
+   5          unsigned char dispcount; 
+   6          unsigned char getdata; 
+   7          unsigned int temp; 
+   8          long int  i; 
+   9          unsigned int R1; 
+  10          
+  11          sbit ST=P3^0; 
+  12          sbit OE=P3^1; 
+  13          sbit EOC=P3^2; 
+  14          sbit CLK=P3^3; 
+  15            
+  16          void main(void) 
+  17          { 
+  18   1        ST=0; 
+  19   1        OE=0; 
+  20   1        ET0=1; 
+  21   1        ET1=1; 
+  22   1        EA=1; 
+  23   1        TMOD=0x12; 
+  24   1        TH0=216; 
+  25   1        TL0=216; 
+  26   1        TH1=(65536-5000)/256; 
+  27   1        TL1=(65536-5000)%256; 
+  28   1        TR1=1; 
+  29   1        TR0=1; 
+  30   1        ST=1; 
+  31   1        ST=0; 
+  32   1        while(1) 
+  33   1          { 
+  34   2            if(EOC==1) 
+  35   2              { 
+  36   3                OE=1; 
+  37   3                getdata=P0; 
+  38   3                OE=0;
+  39   3              i=getdata*196;
+  40   3            dispbuf[5]=i/10000; 
+  41   3            i=i%10000; 
+  42   3            dispbuf[6]=i/1000;
+  43   3            i=i%1000; 
+  44   3            dispbuf[7]=i/100;          
+  45   3                ST=1; 
+  46   3                ST=0; 
+  47   3              } 
+  48   2          } 
+  49   1      } 
+  50            
+  51          void t0(void) interrupt 1 using 0           //???0  ????
+  52          { 
+  53   1        CLK=~CLK; 
+  54   1      } 
+  55            
+C51 COMPILER V7.50   CODE                                                                  04/17/2021 16:26:48 PAGE 2   
+
+  56          void t1(void) interrupt 3 using 0          //???1  ????
+  57          { 
+  58   1        TH1=(65536-6000)/256; 
+  59   1        TL1=(65536-6000)%256; 
+  60   1        P2=0xff;
+  61   1        P1=dispcode[dispbuf[dispcount]]; 
+  62   1        P2=dispbitcode[dispcount]; 
+  63   1        if(dispcount==5) 
+  64   1          { 
+  65   2            P1=P1 | 0x80; 
+  66   2          } 
+  67   1        dispcount++; 
+  68   1        if(dispcount==8) 
+  69   1          { 
+  70   2            dispcount=0; 
+  71   2          }  
+  72   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    244    ----
+   CONSTANT SIZE    =     19    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
