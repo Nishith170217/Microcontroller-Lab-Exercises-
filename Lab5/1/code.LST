@@ -1,0 +1,44 @@
+C51 COMPILER V7.50   CODE                                                                  04/01/2021 19:12:28 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE CODE
+OBJECT MODULE PLACED IN code.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE code.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #define uchar unsigned char;
+   3          uchar i,j,num;
+   4          unsigned char display[8]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+   5          void delay(k)
+   6          { while(k--)
+   7   1         { j=9650;while(j--);}
+   8   1      }
+   9          
+  10           main()
+  11          {    
+  12   1         SCON=0x00;
+  13   1       while(i<8)
+  14   1       {  
+  15   2         SBUF=display[i];
+  16   2        while(!TI);
+  17   2        TI=0;
+  18   2        delay(8);
+  19   2          i++;
+  20   2        }
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     79    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

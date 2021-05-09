@@ -1,0 +1,114 @@
+BL51 BANKED LINKER/LOCATER V5.12                                                        04/01/2021  19:27:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.12, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE code.obj TO lab52code
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  code.obj (CODE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  lab52code (CODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0018H     UNIT         ?PR?MAIN?CODE
+            CODE    001BH     0016H     UNIT         ?CO?CODE
+            CODE    0031H     0014H     UNIT         ?PR?SEND_STR?CODE
+            CODE    0045H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   lab52code (CODE)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CODE
+
+?PR?MAIN?CODE
+  +--> ?PR?SEND_STR?CODE
+
+?PR?SEND_STR?CODE
+  +--> ?CO?CODE
+
+
+
+SYMBOL TABLE OF MODULE:  lab52code (CODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CODE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+BL51 BANKED LINKER/LOCATER V5.12                                                      04/01/2021  19:27:30  PAGE 2
+
+
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  C:0003H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:001BH         PUBLIC        str
+  C:0031H         PUBLIC        send_str
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0003H         LINE#         5
+  C:0003H         LINE#         6
+  C:0003H         LINE#         7
+  C:0006H         LINE#         8
+  C:0009H         LINE#         9
+  C:000CH         LINE#         10
+  C:000FH         LINE#         11
+  C:0012H         LINE#         12
+  C:0014H         LINE#         13
+  C:0016H         LINE#         14
+  C:0016H         LINE#         15
+  C:0016H         LINE#         16
+  C:0019H         LINE#         17
+  -------         ENDPROC       MAIN
+  -------         PROC          SEND_STR
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0031H         LINE#         19
+  C:0031H         LINE#         21
+  C:0031H         LINE#         22
+  C:0033H         LINE#         23
+  C:003AH         LINE#         24
+  C:003AH         LINE#         25
+  C:003CH         LINE#         26
+  C:003FH         LINE#         27
+  C:0041H         LINE#         28
+  C:0042H         LINE#         29
+  C:0044H         LINE#         30
+  -------         ENDPROC       SEND_STR
+  -------         ENDMOD        CODE
+
+Program Size: data=9.0 xdata=0 code=81
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
